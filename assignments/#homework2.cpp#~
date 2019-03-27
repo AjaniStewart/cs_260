@@ -1,0 +1,34 @@
+#include <iostream>
+using namepace std;
+
+int main() {
+  struct foo_t {
+    int x[100];
+    int var1;
+    int y[10];
+  } foo;
+  int var2;
+  long i;
+  int *p, *q;
+  short int *s;
+  long int *i;
+  struct foo_t bar[50];
+
+  for (i=0; i<100; i++) foo.x[i]=100+i;
+  for (i=0; i<10; i++) foo.y[i]=200+i;
+  foo.var1 = 250;
+
+  cout << sizeof(*s) << "\n";
+  cout << sizeof(*p) << "\n";
+  cout << sizeof(*l) << "\n";
+  q = (int*) &foo; cout << q << "\n";
+  p = &(foo.x[5]); cout << p << "\n";
+
+  //Point 1
+  q = (int*) &var2; cout << q << "\n";
+  q = p+16;         cout << *q << "\n";
+  i = ((long) p) + 16;
+  q = (int*) i; cout << *q << "\n";
+  s = (short*) i; cout << *s << "\n";
+  l = (long*) i; cout << *l << "\n";
+  q = p+95; cout << *q << "
